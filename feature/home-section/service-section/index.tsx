@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,15 +8,52 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { coreValues } from "@/data";
-import { ArrowBigRight, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import React from "react";
 import Image from "next/image";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CoreSection = () => {
+  useGSAP(() => {
+    gsap.utils.toArray<HTMLElement>(".box").forEach((box) => {
+      gsap.fromTo(
+        box,
+        { opacity: 0, y: 50, scale: 0.75 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.9,
+          ease: "power2.out",
+          markers: true,
+          scrollTrigger: {
+            trigger: box,
+            start: "top 90%", // when the top of the box hits 90% of viewport height
+            // toggleActions: "play none none reverse", 
+          },
+        }
+      );
+    });
+    gsap.from(".title", {
+      opacity: 0,
+      duration: 1,
+      ease: "power4.in",
+      scrollTrigger: {
+        trigger: ".title",
+        start: "top 90%", // when the top of the box hits 90% of viewport height
+        // toggleActions: "play none none reverse",
+      },
+    });
+  }, []);
+
   return (
     <div className="container-padding  py-10 md:py-20 flex flex-col gap-4">
       <div className=" uppercase flex justify-center py-5">
-        <h1 className="poppins-bold text-3xl sm:text-4xl text-[#4A4A4A]">
+        <h1 className="poppins-bold text-3xl sm:text-4xl text-[#4A4A4A] title">
           Our Core Services
         </h1>
       </div>
@@ -23,7 +61,7 @@ const CoreSection = () => {
         {coreValues.map((data) => (
           <Card
             key={data.id}
-            className=" hover:scale-105 hover:shadow-2xl transition-scale ease-in-out duration-500 shadow-gray-400 "
+            className="box hover:scale-105 hover:shadow-2xl transition-scale ease-in-out duration-500 shadow-gray-400 "
           >
             <CardContent className="flex flex-col  h-full py-7 ">
               <CardHeader className="flex  gap-4  flex-col">

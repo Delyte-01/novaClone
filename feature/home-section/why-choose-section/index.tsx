@@ -1,8 +1,45 @@
+"use client";
 import { ChooseArry } from "@/data";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Image from "next/image";
 import React from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ChooseSection = () => {
+  useGSAP(() => {
+    gsap.utils.toArray<HTMLElement>(".box").forEach((box) => {
+      gsap.fromTo(
+        box,
+        { opacity: 0,y:10 ,scale:0.86},
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.9,
+          ease: "power2.out",
+          markers: true,
+          scrollTrigger: {
+            trigger: box,
+            start: "top 90%", // when the top of the box hits 90% of viewport height
+            // toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+    gsap.from(".title-why", {
+      opacity: 0,
+      duration: 1,
+      ease: "power4.in",
+      scrollTrigger: {
+        trigger: ".title-why",
+        start: "top 90%", // when the top of the box hits 90% of viewport height
+        // toggleActions: "play none none reverse",
+      },
+    });
+  }, []);
   return (
     <div
       className="container-padding text-white bg-[#1F64E7] min-h-screen w-full py-10 md:py-20 flex flex-col bg-cover bg-center"
@@ -12,7 +49,7 @@ const ChooseSection = () => {
       }}
     >
       <div className=" uppercase flex justify-center py-5">
-        <h1 className="poppins-bold text-3xl sm:text-4xl  ">
+        <h1 className="poppins-bold text-3xl sm:text-4xl title-why  ">
           WHY CHOOSE NOVAHILLS
         </h1>
       </div>
@@ -20,7 +57,7 @@ const ChooseSection = () => {
         {ChooseArry.map((data, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg p-10 flex flex-col justify-center gap-3 shadow-2xl"
+            className="bg-white rounded-lg p-10 flex flex-col justify-center gap-3 shadow-2xl box"
           >
             <div>
               <Image
@@ -33,7 +70,7 @@ const ChooseSection = () => {
                 className="object-cover w-18 h-18 "
               />
             </div>
-            <h1 className="poppins-bold text-2xl  text-gray-700">
+            <h1 className="poppins-bold text-2xl  text-gray-700 text-center">
               {data.title}
             </h1>
             <p className="">{data.text}</p>

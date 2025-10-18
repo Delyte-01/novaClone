@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
 
 interface NavProps {
   id: string;
@@ -11,22 +12,23 @@ interface NavProps {
 }
 const Header = () => {
   const navItems: NavProps[] = [
-    { id: "#home", label: "Home" },
-    { id: "#about", label: "About" },
-    { id: "#projects", label: "Projects" },
-    { id: "#testimonial", label: "Testimonials" },
-    { id: "#contact", label: "Contact" },
+    { id: "/", label: "Home" },
+    { id: "/about", label: "About us" },
+    { id: "/services", label: "services" },
+    { id: "/faq", label: "Faq" },
+    { id: "/contact", label: "Contact" },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-  const [activeSection, setActiveSection] = useState<string>("home");
 
-  const handleNavClick = (sectionId: string) => {
-    setActiveSection(sectionId);
+  const pathname = usePathname();
+  console.log(pathname);
+
+  const handleNavClick = () => {
     setIsMobileMenuOpen(false); // close mobile menu
   };
   return (
-    <header className="container-padding shadow-md sticky top-0  w-full  z-50  bg-white/80  border-b border-gray-200 transition-all duration-300  ">
+    <header className="container-padding shadow-md sticky top-0  w-full  z-50  bg-white  border-b border-gray-200 transition-all duration-300  ">
       <div className="flex justify-between items-center py-4 h-[90px]">
         <div className="flex items-center gap-2">
           <Image
@@ -43,18 +45,15 @@ const Header = () => {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => handleNavClick(item.id)}
+              onClick={() => handleNavClick()}
               className={`relative text-sm font-bold transition-colors duration-200 ${
-                activeSection === item.id
+                item.id === pathname
                   ? "text-blue-600 dark:text-blue-400"
                   : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               }`}
             >
               <Link href={item.id} className="uppercase">
                 {item.label}
-                {activeSection === item.id && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400" />
-                )}
               </Link>
             </button>
           ))}
@@ -84,9 +83,9 @@ const Header = () => {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => handleNavClick(item.id)}
+              onClick={() => handleNavClick()}
               className={`block w-full text-left py-2 px-4 text-sm font-medium transition-colors duration-200 ${
-                activeSection === item.id
+                pathname === item.id
                   ? "text-blue-600 dark:text-blue-400"
                   : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
               }`}

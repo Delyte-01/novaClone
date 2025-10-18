@@ -12,6 +12,13 @@ interface ChooseArryTypes
   text: string;
 }
 
+interface FAQTypes
+{
+  question: string;
+  answer:string
+}
+
+
 export const coreValues:coreValueTypes[] = [
   {
     id: 1,
@@ -66,5 +73,45 @@ export const ChooseArry:ChooseArryTypes[] = [
   {
     title: "Trusted Partnerships",
     text: "We collaborate closely with you to deliver seamless, end-to-end services with full transparency.",
+  },
+];
+
+export const FaqArry: FAQTypes[] = [
+  {
+    question: "What types of businesses can benefit from your services?",
+    answer:
+      "Our services are ideal for Small and Medium-sized Enterprises (SMEs) and Startups across various industries. Whether you are launching a new business or scaling your operations, we provide customized support tailored to your business size, structure, and goals.",
+  },
+  {
+    question: "How do I get started?",
+    answer:
+      "Simply reach out through our contact form to schedule a free consultation. We will discuss your needs and recommend a custom solution that aligns with your goals.",
+  },
+  {
+    question:
+      "What is a fractional CFO and how is it different from a full-time CFO?",
+    answer:
+      "A fractional CFO provides high-level financial strategy, forecasting, and oversight on a part-time or project basis. This allows your business to benefit from expert financial leadership without the long-term commitment or cost of hiring a full-time executive.",
+  },
+  {
+    question:
+      "Which accounting platforms do you support for outsourced bookkeeping?",
+    answer:
+      "We work with widely used platforms such as QuickBooks Online, Sage Accounting, Xero, Tally ERP, Zoho Books, and custom ERP systems. Our team ensures seamless integration and accurate financial reporting, regardless of the system your business uses.",
+  },
+  {
+    question: "How does your accounting system automation service work?",
+    answer:
+      "We assess your current accounting automation processes, identify inefficiencies, and implement automation tools to streamline operations. This includes automating invoicing, expense management, reporting, and compliance tracking.",
+  },
+  {
+    question: "Do you handle customs and compliance in foreign procurements?",
+    answer:
+      "Yes. We collaborate with a dedicated international logistics partner that specializes in customs brokerage and regulatory compliance. Once your purchase order is confirmed, our partner takes the lead on import documentation, duty calculations, and real-time clearance tracking. This arrangement ensures every shipment meets all legal requirements and reaches you on schedule, while we stay in close coordination and keep you fully informed throughout the process.",
+  },
+  {
+    question: "Can you manage our entire supply chain?",
+    answer:
+      "Absolutely. We offer end-to-end supply chain solutions from vendor sourcing and order management to logistics coordination and performance monitoring.",
   },
 ];

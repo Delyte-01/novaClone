@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/lenis-smooth-scroll";
+import Header from "@/components/Header";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+import Footer from "@/components/footer";
+import WhatsappSection from "@/components/whatsapp-page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,6 +18,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,9 +35,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      ><SmoothScroll>
+      >
+        <SmoothScroll>
+          <Header />
+          <WhatsappSection />
           {children}
-          </SmoothScroll>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
