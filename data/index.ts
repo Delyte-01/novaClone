@@ -19,6 +19,7 @@ interface FAQTypes
 }
 
 
+
 export const coreValues:coreValueTypes[] = [
   {
     id: 1,
@@ -114,4 +115,22 @@ export const FaqArry: FAQTypes[] = [
     answer:
       "Absolutely. We offer end-to-end supply chain solutions from vendor sourcing and order management to logistics coordination and performance monitoring.",
   },
+];
+
+export const industries:string[] = [
+  "Technology",
+  "Finance",
+  "Healthcare",
+  "Education",
+  "Manufacturing",
+  "Retail",
+  "Construction",
+  "Transportation",
+  "Hospitality",
+  "Entertainment",
+  "Real Estate",
+  "Agriculture",
+  "Marketing & Advertising",
+  "Telecommunications",
+  "Energy & Utilities",
 ];

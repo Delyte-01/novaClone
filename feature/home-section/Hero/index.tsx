@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
+import Image from "next/image";
 import React, { useRef } from "react";
 
 gsap.registerPlugin(SplitText);
@@ -45,7 +46,7 @@ const Hero = () => {
       className="container-padding min-h-[80vh] bg-cover bg-center bg-no-repeat  flex   relative py-10 "
       style={{
         backgroundImage:
-          "url('https://res.cloudinary.com/dk5mfu099/image/upload/v1760705628/wmremove-transformed_2_bsnh49.jpg')",
+          "url('https://res.cloudinary.com/dk5mfu099/image/upload/v1761037866/wmremove-transformed_2_bsnh49_guhpcd.jpg')",
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-tl from-[#262626] to-[#1B49624D] " />

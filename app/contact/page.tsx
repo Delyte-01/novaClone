@@ -1,4 +1,6 @@
 import HeroSection from '@/components/hero-section';
+import ContactForm from '@/feature/contact-section/contact-form';
+import MapSection from '@/feature/contact-section/map-section';
 import React from 'react'
 
 export default function ContactPage() {
@@ -7,6 +9,8 @@ export default function ContactPage() {
   return (
     <div>
       <HeroSection title="Contact " url={url} />
+      <ContactForm />
+      <MapSection />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import React from "react";
 
 export default function AboutPage() {
   const url =
-    "https://res.cloudinary.com/dk5mfu099/image/upload/v1760705628/wmremove-transformed_2_bsnh49.jpg";
+    "https://res.cloudinary.com/dk5mfu099/image/upload/v1761037866/wmremove-transformed_2_bsnh49_guhpcd.jpg";
   return (
     <div>
       <HeroSection title="About us" url={url} />
