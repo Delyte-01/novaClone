@@ -204,5 +204,6 @@
 
 
 
-
-
+html{
+  scroll-behavior: smooth;
+}

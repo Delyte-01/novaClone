@@ -1,26 +1,24 @@
-
-
- interface coreValueTypes {
+interface coreValueTypes {
   id: number;
   title: string;
   subTitle: string;
   text: string;
 }
-interface ChooseArryTypes
-{
+interface ChooseArryTypes {
   title: string;
   text: string;
 }
 
-interface FAQTypes
-{
+interface FAQTypes {
   question: string;
-  answer:string
+  answer: string;
 }
-
-
-
-export const coreValues:coreValueTypes[] = [
+interface CFODataTypes
+{
+  title: string;
+  desc: string;
+}
+export const coreValues: coreValueTypes[] = [
   {
     id: 1,
     title: "Fractional CFO Services",
@@ -53,8 +51,7 @@ export const coreValues:coreValueTypes[] = [
   },
 ];
 
-
-export const ChooseArry:ChooseArryTypes[] = [
+export const ChooseArry: ChooseArryTypes[] = [
   {
     title: "Expertise Across Domains",
     text: "Our team combines deep knowledge of finance, accounting, business operations and supply chain management to provide comprehensive solutions.",
@@ -117,7 +114,7 @@ export const FaqArry: FAQTypes[] = [
   },
 ];
 
-export const industries:string[] = [
+export const industries: string[] = [
   "Technology",
   "Finance",
   "Healthcare",
@@ -133,4 +130,107 @@ export const industries:string[] = [
   "Marketing & Advertising",
   "Telecommunications",
   "Energy & Utilities",
+];
+
+export const cfoData: CFODataTypes[] = [
+  {
+    title: "Financial Planning & Forecasting",
+    desc: "Creating detailed budgets and forecasting future financial performance to support informed growth strategies.",
+  },
+  {
+    title: "Cash Flow & Working Capital Management",
+    desc: "Managing cash inflows and outflows to maintain liquidity and ensure financial stability at every stage of your business.",
+  },
+  {
+    title: "Budgeting & Performance Analysis",
+    desc: "Monitoring key financial metrics and identifying trends to guide insightful and data-driven decision-making.",
+  },
+  {
+    title: "Fundraising Support & Investor Relations",
+    desc: "Assisting with capital-raising efforts and managing communications with investors and stakeholders.",
+  },
+  {
+    title: "Risk Management & Compliance Oversight",
+    desc: "Identifying financial risks, strengthening internal controls, and keeping your business aligned with regulatory requirements.",
+  },
+];
+export const supplyChainData: CFODataTypes[] = [
+  {
+    title: "Vendor Sourcing and Relationship Management",
+    desc: "Leveraging our network of reliable vendors to source quality products and services while fostering strong, collaborative partnerships.",
+  },
+  {
+    title: "Inventory Planning and Demand Forecasting",
+    desc: "Accurately predicting stock requirements to prevent shortages and reduce excess inventory.",
+  },
+  {
+    title: "Order Processing and Fulfilment Coordination",
+    desc: "Managing the entire order lifecycle, from placement through to timely delivery.",
+  },
+  {
+    title: "Logistics and Transportation Management",
+    desc: "Organizing the movement of goods across locations.",
+  },
+  {
+    title: "Performance Monitoring and Continuous Improvement",
+    desc: "Tracking key performance indicators and continuously refining processes to boost efficiency.",
+  },
+];
+export const outsourcedAccountData: CFODataTypes[] = [
+  {
+    title: "Bookkeeping & Financial Reporting",
+    desc: "Ensuring every financial transaction is recorded in a timely manner and preparing audited or unaudited financial statements.",
+  },
+  {
+    title: "Accounts Payable & Receivable Management",
+    desc: "Efficiently managing your incoming and outgoing payments to maintain organized cash flow.",
+  },
+  {
+    title: "Payroll Processing & Statutory Remittances",
+    desc: "Handling salary calculations, statutory deduction processing, and remittance to the appropriate authorities.",
+  },
+  {
+    title: "Filing Taxes",
+    desc: "Preparing and submitting tax returns (e.g., Corporate Tax, Personal Income Tax, and VAT) on schedule to keep your business tax-compliant.",
+  },
+  {
+    title: "Budget Monitoring & Financial Projections",
+    desc: "Tracking expenses against budgets and analyzing financial trends to provide reliable forecasts and strategic insights.",
+  },
+  {
+    title: "Digital Document Organization",
+    desc: "Systematically managing financial records in secure and easily accessible digital formats.",
+  },
+  {
+    title: "Internal Audit & Compliance",
+    desc: "Conducting thorough reviews of financial processes and controls to identify risks, ensure regulatory compliance, and strengthen financial integrity.",
+  },
+  {
+    title: "Liaison with External Auditors and Tax Authorities",
+    desc: "Assisting during audits by promptly providing all requested information."
+  },
+];
+
+export const businessRegistrationData: CFODataTypes[] = [
+  {
+    title: "Business Name Search and Reservation",
+    desc: "Verifying and securing your desired business name.",
+  },
+  {
+    title: "Filing Incorporation Documents",
+    desc: "Handling all legal documentation required to officially register your business with the Corporate Affairs Commission.",
+  },
+  {
+    title: "Registration for Tax Identification Number",
+    desc: "Registering your business with the relevant tax authorities and obtaining the necessary tax identification numbers.",
+  },
+  {
+    title: "Post-Incorporation Services",
+    desc: "Filing returns and making official updates to your registered business, including changes to the business name, directors, shareholding structure, contact details, and other statutory records.",
+  },
+  {
+    title:
+      "Application for Special Control Unit Against Money Laundering (SCUML) Certificate",
+    desc: "Handling SCUML registration for Designated Non-Financial Businesses and Professions (DNFBPs), a mandatory step for compliance with anti-money laundering laws and for opening corporate bank accounts.",
+  },
 ];
