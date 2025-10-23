@@ -1,7 +1,9 @@
+"use client"
 import { Button } from "@/components/ui/button";
+import { useServiceAnimation } from "@/hooks/use-service-animation";
 import { CircleArrowOutDownRight } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 
 interface ServiesPropsType {
   title: string;
@@ -23,11 +25,20 @@ const ServicecomponentBeta = ({
   imgUrl,
   param,
   id,
-}: ServiesPropsType) => {
+}: ServiesPropsType) =>
+{
+  
+   const serviceRef = useRef<HTMLDivElement>(null);
+
+   // ✅ Reusable animation hook
+  useServiceAnimation(serviceRef as React.RefObject<HTMLDivElement>);
+  
+
+
   return (
-    <div id={id} className="container-padding py-20 min-h-screen scroll-mt-20">
+    <div id={id} className="container-padding py-20 min-h-screen scroll-mt-20" ref={serviceRef}>
       <div className="flex flex-col-reverse gap-7 md:flex-row">
-        <div className="flex-1 flex flex-col gap-5 text-center items-center">
+        <div className="flex-1 flex flex-col gap-5 text-center items-center content1">
           <Image
             src={imgUrl}
             width={500}
@@ -38,7 +49,7 @@ const ServicecomponentBeta = ({
           <h2>{param}</h2>
           <Button className="uppercase">Contact us</Button>
         </div>
-        <div className="flex-1  flex flex-col gap-4 ">
+        <div className="flex-1  flex flex-col gap-4  content2">
           <div className="flex flex-col gap-3 mb-10 ">
             <h1 className="text-2xl poppins-bold md:text-4xl text-[#1b4962]">
               {title}

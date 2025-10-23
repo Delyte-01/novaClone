@@ -1,15 +1,23 @@
+"use client"
 import { Button } from '@/components/ui/button';
+import { useServiceAnimation } from '@/hooks/use-service-animation';
 import Image from 'next/image';
-import React from 'react'
+import React, { useRef } from 'react'
 
-const AccountingAutomation = ({ id }: { id?: string }) => {
+const AccountingAutomation = ({ id }: { id?: string }) =>
+{
+   const serviceRef = useRef<HTMLDivElement>(null);
+  
+     // ✅ Reusable animation hook
+    useServiceAnimation(serviceRef as React.RefObject<HTMLDivElement>);
   return (
     <div
       id={id}
+      ref={serviceRef}
       className="min-h-[600px] container-padding py-20 bg-[#f3f3f3] scroll-mt-20"
     >
       <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-        <div className="flex-1 flex flex-col gap-3 md:px-4">
+        <div className="flex-1 flex flex-col gap-3 md:px-4 content1">
           <h1 className="text-3xl md:text-4xl poppins-bold mb-5 text-[#1b4962]">
             Accounting System Automation
           </h1>
@@ -44,7 +52,7 @@ const AccountingAutomation = ({ id }: { id?: string }) => {
             transition to a more efficient system.
           </span>
         </div>
-        <div className="flex-1 flex flex-col gap-5 text-center items-center">
+        <div className="flex-1 flex flex-col gap-5 text-center items-center content2">
           <Image
             src="https://res.cloudinary.com/dk5mfu099/image/upload/v1760727247/a-man-makes-the-word-acronym-abbreviation-cfo-chief-financial-officer-financial-management-in_a5v0ua.jpg"
             width={500}

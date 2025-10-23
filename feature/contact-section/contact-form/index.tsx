@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -19,14 +20,19 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { industries } from "@/data";
+import { useServiceAnimation } from "@/hooks/use-service-animation";
 import { Mail, MapPin, Phone } from "lucide-react";
-import React from "react";
+import React, { useRef } from "react";
 
-const ContactForm = () => {
+const ContactForm = () =>
+{
+  const contactRef = useRef<HTMLDivElement>(null);
+    
+    useServiceAnimation(contactRef as React.RefObject<HTMLDivElement>);
   return (
-    <div className="container-padding min-h-screen py-20">
+    <div className="container-padding min-h-screen py-20" ref={contactRef}>
       <div className="max-w-7xl flex flex-col md:flex-row h-full gap-4">
-        <div className="flex-1 border md:max-w-[500px]">
+        <div className="flex-1 md:max-w-[500px] content1">
           <div className="flex flex-col gap-4 py-3">
             <h1 className="text-[#1b4962] poppins-bold text-2xl md:text-3xl">Let’s Connect!</h1>
             <p>
@@ -62,11 +68,11 @@ const ContactForm = () => {
                 </p>
               </div>
             </div>
-            <div className="flex gap-3 items-center py-2 fle-col">
+            <div className="inline items-center py-2 ">
               <p>Outside Nigeria</p>
               <p>+1 (647) 675-1414</p>
             </div>
-            <div className="flex gap-3 items-center py-2 flex-col">
+            <div className="flex  py-2 flex-col">
               <p>Whatsapp only</p>
               <p>+‪234 810 873 5653‬</p>
             </div>
@@ -84,7 +90,7 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
-        <Card className="flex-1  py-10">
+        <Card className="flex-1  py-10 content2">
           <CardContent>
             <form>
               <CardHeader>

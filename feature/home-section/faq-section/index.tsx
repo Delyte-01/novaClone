@@ -42,9 +42,11 @@ const FAQItem = ({
 
 
 
-const FaqSection = () => {
+const FaqSection = () =>
+{
+  
     return (
-      <div className="container-padding py-30 flex flex-col md:flex-row gap-6 min-h-screen">
+      <div className="container-padding py-30 flex flex-col md:flex-row gap-6 min-h-screen" id='faq' >
         <div className="flex-1  flex  flex-col gap-4 ">
           <h1 className="poppins-bold text-3xl text-[#1b4962]">
             FREQUENTLY ASKED QUESTIONS
